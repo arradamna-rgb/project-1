@@ -1,4 +1,5 @@
-# project-1
+# Nihongo go 
+The name of the Project.
 <img width="491" height="503" alt="Untitled-2026-11-16-1951" src="https://github.com/user-attachments/assets/edfa5a62-d88d-4b7f-8ce8-dfd66af32a99" />
 
 ## project-planning
