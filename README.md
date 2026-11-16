@@ -6,3 +6,5 @@ A fun test for basic Japanese language called  "Nihongo Go". Players can learn b
 the front img 
 the game inside 
 the game description 
+### credits 
+game logo from chatgpt.com
