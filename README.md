@@ -5,6 +5,14 @@ The name of the Project.
 ## project-planning
 ### Game Description 
 A fun test for basic Japanese language called  "Nihongo Go". Players can learn basic Japanese words, phrases, and vocabulary through interactive challenges, quizzes, and different levels. The goal is to make learning Japanese easy, enjoyable, and exciting while improving their memory in learning new words.
+How to Play:
+Players answer 10 simple Japanese vocabulary questions by choosing the correct answer. Each correct answer earns 1 point.
+
+Win Condition:
+Players win if they score 6 points or more out of 10.
+
+Lose Condition:
+Players lose if they score 5 points or less out of 10.
 
 <img width="1088" height="532" alt="Untitled-2026-11-16-19511" src="https://github.com/user-attachments/assets/e96e2110-1551-41f6-8583-90c0d9f9184e" />
  
