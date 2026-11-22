@@ -1,10 +1,13 @@
 // const music = document.querySelector('#bg-music')
 
 // music.addEventListener('click', () => {
-// })
+    // })
+    
+let score = 0
+const trackAnswers = [];
 
 const music = new Audio('./assets/Study_Relax.mp3')
-const music = new Audio('./assets/桜の季節.mp3')
+// const music = new Audio('./assets/桜の季節.mp3')
 
 const startBtn = document.querySelector('.startbtn')
 if (startBtn) {
@@ -43,19 +46,19 @@ if (howBtn && howPopup && closeHow) {
 //     if (currentQuestion < questions.length) {
 //         questions[currentQuestion].classList.remove('hidden')
 //     } else {
-//         console.log('Quix completed')
-//     }
-// })
+    //         console.log('Quix completed')
+    //     }
+    // })
 
-// backBtn.addEventListener('click', () => {
-//     if (currentQuestion > 0) {
-//         questions[currentQuestion].classList.add('hidden')
-//         currentQuestion--
-//         questions[currentQuestion].classList.remove('hidden')
-//     }
-// })
-
-// CORRECT ANS
+    // backBtn.addEventListener('click', () => {
+        //     if (currentQuestion > 0) {
+            //         questions[currentQuestion].classList.add('hidden')
+            //         currentQuestion--
+            //         questions[currentQuestion].classList.remove('hidden')
+            //     }
+            // })
+            
+            // CORRECT ANS
 const correctAnswers = [
     'Cat',
     'True',
@@ -93,11 +96,11 @@ if (nextBtn) {
             nextBtn.textContent = 'Submit'
         }
     } else {
-        let score = 0
         userAnswers.forEach((answer, index) => {
             if (answer === correctAnswers[index]) {
                 score++
             }
+            trackAnswers.push(answer === correctAnswers[index])
         })
         window.location.href = `index3.html?score=${score}`
         // console.log('Quix completed')
@@ -108,14 +111,14 @@ if (nextBtn) {
 if (backBtn) {
     backBtn.disabled = currentQuestion === 0
     backBtn.addEventListener('click', () => {
-    if (currentQuestion > 0) {
-        questions[currentQuestion].classList.add('hidden')
-        currentQuestion--
-        questions[currentQuestion].classList.remove('hidden')
-    }
-})
+        if (currentQuestion > 0) {
+            questions[currentQuestion].classList.add('hidden')
+            currentQuestion--
+            questions[currentQuestion].classList.remove('hidden')
+        }
+    })
 }
-   
+
 //RESULT 
 
 const resultTitle = document.querySelector('#result-title')
@@ -125,7 +128,8 @@ const resultMessage = document.querySelector('#result-message')
 if (resultTitle && resultMessage) {
     const params = new URLSearchParams(window.location.search)
     const score = Number(params.get('score'))
-
+    console.log(trackAnswers)
+    
     if (score >= 6) {
         resultTitle.textContent = 'すごい! (Sugoi!)'
         resultMessage.textContent = `You scored ${score}/10! Great job!`
