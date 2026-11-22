@@ -2,14 +2,39 @@
 
 // music.addEventListener('click', () => {
     // })
+    // const music = new Audio('./assets/Study_Relax.mp3')
+    // const music = new Audio('./assets/桜の季節.mp3')
     
-let score = 0
-const trackAnswers = [];
+    
+    // Cached Element References
+    const startBtn = document.querySelector('.startbtn')
+    const questions = document.querySelectorAll('.question')
+    const nextBtn = document.querySelector('#nextbtn')
+    const backBtn = document.querySelector('#backbtn')
+    const howBtn = document.querySelector('.how')
+    const howPopup = document.querySelector('#how-popup')
+    const closeHow = document.querySelector('#close-how')
+    const resultTitle = document.querySelector('#result-title')
+    const resultMessage = document.querySelector('#result-message')
+    
+    // Variables
+    let score = 0
+    let currentQuestion = 0
+    const correctAnswers = [
+        'Cat',
+        'True',
+        'Ohayou',
+        'Hai',
+        'Water',
+        '日本',
+        'Sensei',
+        'False',
+        'False',
+        'True'
+    ]
+    let userAnswers = Array(questions.length).fill(null) 
 
-const music = new Audio('./assets/Study_Relax.mp3')
-// const music = new Audio('./assets/桜の季節.mp3')
-
-const startBtn = document.querySelector('.startbtn')
+// Event Listeners
 if (startBtn) {
     startBtn.addEventListener('click', () => {
         console.log('moved')
@@ -17,29 +42,63 @@ if (startBtn) {
     })
 }
 
-const questions = document.querySelectorAll('.question')
-
-const nextBtn = document.querySelector('#nextbtn')
-const backBtn = document.querySelector('#backbtn')
-let currentQuestion = 0
-
-
-
-const howBtn = document.querySelector('.how')
-const howPopup = document.querySelector('#how-popup')
-const closeHow = document.querySelector('#close-how')
-
-if (howBtn && howPopup && closeHow) {
+if (howBtn) {
     howBtn.addEventListener('click', () => {
         howPopup.classList.remove('hidden')
     })
+}
 
+if (closeHow) {
     closeHow.addEventListener('click', () => {
         howPopup.classList.add('hidden')
     })
 }
 
+questions.forEach((question,index) => {
+    const options = question.querySelectorAll('.options button')
 
+    options.forEach((option) => {
+        option.addEventListener('click', () => {
+            userAnswers[index] = option.textContent.trim()
+        })
+    })
+})
+
+if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+        questions[currentQuestion].classList.add('hidden')
+        currentQuestion++
+        // backBtn.disabled = currentQuestion === 0
+        if (currentQuestion < questions.length) {
+            questions[currentQuestion].classList.remove('hidden')
+            if (currentQuestion === questions.length - 1) {
+                nextBtn.textContent = 'Submit'
+            }
+        } else {
+            console.log(userAnswers)
+            userAnswers.forEach((answer, index) => {
+                if (answer === correctAnswers[index]) {
+                    score++
+                }
+            })
+            localStorage.setItem("score", score)
+            localStorage.setItem("userAnswers", JSON.stringify(userAnswers))
+            window.location.href = `index3.html`
+            // console.log('Quix completed')
+        }
+    })
+}
+
+if (backBtn) {
+    // backBtn.disabled = currentQuestion === 0
+    backBtn.addEventListener('click', () => {
+        if (currentQuestion > 0) {
+            questions[currentQuestion].classList.add('hidden')
+            currentQuestion--
+            questions[currentQuestion].classList.remove('hidden')
+        }
+    })
+}
 // nextBtn.addEventListener('click', () => {
 //     questions[currentQuestion].classList.add('hidden')
 //     currentQuestion++
@@ -59,76 +118,21 @@ if (howBtn && howPopup && closeHow) {
             // })
             
             // CORRECT ANS
-const correctAnswers = [
-    'Cat',
-    'True',
-    'Ohayou',
-    'Hai',
-    'Water',
-    '日本',
-    'Sensei',
-    'False',
-    'False',
-    'True'
-]
-
-let userAnswers = Array(questions.length).fill(null)
-
-questions.forEach((question,index) => {
-    const options = question.querySelectorAll('.options button')
-
-    options.forEach((option) => {
-        option.addEventListener('click', () => {
-            userAnswers[index] = option.textContent.trim()
-        })
-    })
-})
 
 
-if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-    questions[currentQuestion].classList.add('hidden')
-    currentQuestion++
-    backBtn.disabled = currentQuestion === 0
-    if (currentQuestion < questions.length) {
-        questions[currentQuestion].classList.remove('hidden')
-        if (currentQuestion === questions.length - 1) {
-            nextBtn.textContent = 'Submit'
-        }
-    } else {
-        userAnswers.forEach((answer, index) => {
-            if (answer === correctAnswers[index]) {
-                score++
-            }
-            trackAnswers.push(answer === correctAnswers[index])
-        })
-        window.location.href = `index3.html?score=${score}`
-        // console.log('Quix completed')
-    }
-})
-}
 
-if (backBtn) {
-    backBtn.disabled = currentQuestion === 0
-    backBtn.addEventListener('click', () => {
-        if (currentQuestion > 0) {
-            questions[currentQuestion].classList.add('hidden')
-            currentQuestion--
-            questions[currentQuestion].classList.remove('hidden')
-        }
-    })
-}
 
-//RESULT 
 
-const resultTitle = document.querySelector('#result-title')
-const resultMessage = document.querySelector('#result-message')
 
+// Result Logic 
 
 if (resultTitle && resultMessage) {
-    const params = new URLSearchParams(window.location.search)
-    const score = Number(params.get('score'))
-    console.log(trackAnswers)
+    // const params = new URLSearchParams(window.location.search)
+    // const score = Number(params.get('score'))
+    score = Number(localStorage.getItem("score"))
+    userAnswers = JSON.parse(localStorage.getItem("userAnswers"))
+    console.log(score)
+    console.log(userAnswers)
     
     if (score >= 6) {
         resultTitle.textContent = 'すごい! (Sugoi!)'
