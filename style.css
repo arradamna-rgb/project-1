@@ -1,0 +1,235 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    max-width: 100vw;
+    box-sizing: border-box;
+    background-image: url(assets/ready\ background.png);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    }
+
+
+.home-container {
+    max-height: 20vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    gap: 15px;
+    padding: 20px;
+    margin-top: 25vh;
+}
+
+
+button {
+    background-color: #c89b48;
+    width: 400px;
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all;
+}
+
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h2 {
+  font-family: "Hepta Slab", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h3 {
+  font-family: "Hepta Slab", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  align-items: center;
+  text-align: center;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.options button:hover {
+    background-color: #c94c64;
+}
+.startbtn {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    width: 400px;
+    padding: 1%;
+    border: none;
+    border-radius:0%;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+
+}
+.startbtn button {
+     display: block;
+    text-decoration: none;
+    text-align: center;
+    width: 100;
+}
+.startbtn:hover button {
+    background-color: #c94c64;
+}
+.startbtn:hover {
+    background-color: #c94c64;
+    color: white;
+    border-radius: 15px;
+
+}
+
+/* .how:hover{
+    background-color: #c94c64;
+    color: white;
+}  */
+
+button.how:hover {
+    background-color: #c94c64;
+    color: white;
+}
+
+#result-message {
+    display: flex;
+    /* text-align: center; */
+    font-size: 200%;
+    /* justify-content: center;
+    justify-items: center; */
+}
+
+.result-container {
+    margin-top: 200px;
+}
+
+
+/* .question {
+    display: none;
+} */
+
+.question.active {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#nextbtn:hover {
+    background-color: #c94c64;
+}
+
+#backbtn:hover {
+    background-color: #c94c64;
+}
+ 
+#backbtn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 30px;
+}
+
+.nav-buttons button {
+    width: 200px;
+    padding: 10px;
+}
+
+#quiz-page {
+    margin-top: 200px;
+}
+
+#button:hover {
+    background-color: #c94c64;
+    color: white;
+}
+
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#c94c64;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.how-box {
+    background-color: white;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 80%;
+    position: relative;
+    font-size: larger;
+}
+
+.how-box p {
+    line-height: 1.5
+}
+
+.close-how {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+#close-how {
+    line-height: 0%;
+}
+
+.close-how:hover {
+    background: none;
+    color: #c94c64;
+}
+.popup.hidden {
+    display: none;
+}
+
+/* #Submit:hover{
+    background: none;
+    color: #c94c64;
+} */
