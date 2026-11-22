@@ -14,6 +14,8 @@ Players win if they score 6 points or more out of 10.
 Lose Condition:
 Players lose if they score 5 points or less out of 10.
 
+.. I changed few rules like "not checking the answers after submitting each question" to make it like a real test. 
+
 <img width="1088" height="532" alt="Untitled-2026-11-16-19511" src="https://github.com/user-attachments/assets/e96e2110-1551-41f6-8583-90c0d9f9184e" />
  
 the game description 
@@ -23,3 +25,11 @@ Game logo will be chatgpt.com
 
 Game picture is from chatgpt as well 
 <img width="1536" height="1024" alt="Cute Mt  Fuji Sakura Favicon" src="https://github.com/user-attachments/assets/c40c8039-cd08-4ff6-88a2-3ee2dc633a9e" />
+
+Music in the first page got it from Youtube
+<a href="https://www.youtube.com/watch?v=GQxNNgYoQ2Y"></a>
+
+Music in the questions page is from "Suno", created with I prompt that I wrote.
+
+
+
