@@ -1,6 +1,10 @@
-document.addEventListener('click', () => {
-    const music = document.querySelector('#bg-music')
-})
+// const music = document.querySelector('#bg-music')
+
+// music.addEventListener('click', () => {
+// })
+
+const music = new Audio('./assets/Study_Relax.mp3')
+const music = new Audio('./assets/桜の季節.mp3')
 
 const startBtn = document.querySelector('.startbtn')
 if (startBtn) {
