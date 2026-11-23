@@ -16,6 +16,8 @@
     const closeHow = document.querySelector('#close-how')
     const resultTitle = document.querySelector('#result-title')
     const resultMessage = document.querySelector('#result-message')
+    const reviewList = document.querySelector('#review-list')
+    // const options = questions.querySelectorAll(`.options button`)
     
     // Variables
     let score = 0
@@ -60,6 +62,7 @@ questions.forEach((question,index) => {
     options.forEach((option) => {
         option.addEventListener('click', () => {
             userAnswers[index] = option.textContent.trim()
+            console.log(userAnswers)
         })
     })
 })
@@ -84,7 +87,7 @@ if (nextBtn) {
             localStorage.setItem("score", score)
             localStorage.setItem("userAnswers", JSON.stringify(userAnswers))
             window.location.href = `index3.html`
-            // console.log('Quix completed')
+            console.log('Quix completed')
         }
     })
 }
@@ -151,6 +154,21 @@ if (resultTitle && resultMessage) {
     }
 }
 
+// REVIEW LOGIC 
+
+if (reviewList && userAnswers) {
+    correctAnswers.forEach((answer, index) => {
+        if (userAnswers[index] !== answer) {
+            reviewList.innerHTML += `
+                <div>
+                    <h3>Question ${index + 1}</h3>
+                    <p>Your answer: ${userAnswers[index]}</p>
+                    <p>Correct answer: ${answer}</p>
+                </div>
+            `
+        }
+    })
+}
 
 
 
