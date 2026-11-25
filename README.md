@@ -2,6 +2,9 @@
 The name of the Project.
 <img width="491" height="503" alt="Untitled-2026-11-16-1951" src="https://github.com/user-attachments/assets/edfa5a62-d88d-4b7f-8ce8-dfd66af32a99" />
 
+# The link of the project
+<a href="https://arradamna-rgb.github.io/project-1/"
+
 ## project-planning
 ### Game Description 
 A fun test for basic Japanese language called  "Nihongo Go". Players can learn basic Japanese words, phrases, and vocabulary through interactive challenges, quizzes, and different levels. The goal is to make learning Japanese easy, enjoyable, and exciting while improving their memory in learning new words.
