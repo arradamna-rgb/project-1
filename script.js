@@ -18,10 +18,12 @@
     const resultMessage = document.querySelector('#result-message')
     const reviewList = document.querySelector('#review-list')
     // const options = questions.querySelectorAll(`.options button`)
+    const playAgainBtn = document.querySelector('#play-again')
     
     // Variables
     let score = 0
     let currentQuestion = 0
+    const secondQuiz = window.location.pathname.includes('index5.html')
     const correctAnswers = [
         'Cat',
         'True',
@@ -34,7 +36,27 @@
         'False',
         'True'
     ]
+
+    const correctAnswers2 = [
+        'Mountain "Yama"',
+        'False',
+        'Daijoubu',
+        'Book',
+        'Rice balls',
+        'Ringo "りんご"',
+        'True',
+        'True',
+        'Flower',
+        '森'
+    ]
+
+
     let userAnswers = Array(questions.length).fill(null) 
+    let userAnswers2 = Array(questions.length).fill(null) 
+    // if null {
+    //     console.log(`No Answer`)
+    // }
+
 
 // Event Listeners
 if (startBtn) {
@@ -61,7 +83,11 @@ questions.forEach((question,index) => {
 
     options.forEach((option) => {
         option.addEventListener('click', () => {
-            userAnswers[index] = option.textContent.trim()
+            if (secondQuiz) {
+                userAnswers2[index] = option.textContent.trim()
+            } else {
+                userAnswers[index] = option.textContent.trim()
+            }
             console.log(userAnswers)
         })
     })
@@ -102,6 +128,56 @@ if (backBtn) {
         }
     })
 }
+
+if (playAgainBtn) {
+    playAgainBtn.addEventListener('click', () => {
+        if (score >= 6) {
+            window.location.href = 'index5.html'
+        } else {
+            window.location.href = 'index2.html'
+        }
+    })
+}
+
+// // index5.html
+// questions.forEach((question,index) => {
+//     const options = question.querySelectorAll('.options button')
+
+//     options.forEach((option) => {
+//         option.addEventListener('click', () => {
+//             userAnswers2[index] = option.textContent.trim()
+//             console.log(userAnswers)
+//         })
+//     })
+// })
+
+// if (nextBtn) {
+//     nextBtn.addEventListener('click', () => {
+//         questions[currentQuestion].classList.add('hidden')
+//         currentQuestion++
+//         // backBtn.disabled = currentQuestion === 0
+//         if (currentQuestion < questions.length) {
+//             questions[currentQuestion].classList.remove('hidden')
+//             if (currentQuestion === questions.length - 1) {
+//                 nextBtn.textContent = 'Submit'
+//             }
+//         } else {
+//             console.log(userAnswers)
+//             userAnswers2.forEach((answer, index) => {
+//                 if (answer === correctAnswers2[index]) {
+//                     score++
+//                 }
+//             })
+//             localStorage.setItem("score", score)
+//             localStorage.setItem("userAnswers2", JSON.stringify(userAnswers))
+//             window.location.href = `index3.html`
+//             console.log('Quix completed')
+//         }
+//     })
+// }
+
+
+
 // nextBtn.addEventListener('click', () => {
 //     questions[currentQuestion].classList.add('hidden')
 //     currentQuestion++
@@ -162,31 +238,11 @@ if (reviewList && userAnswers) {
             reviewList.innerHTML += `
                 <div>
                     <h3>Question ${index + 1}</h3>
-                    <p>Your answer: ${userAnswers[index]}</p>
+                    <p>Your answer: ${userAnswers[index] || 'No Answer'}</p>
                     <p>Correct answer: ${answer}</p>
                 </div>
             `
         }
     })
 }
-
-
-
-
-
-// to show first q
-// questions[currentQuestion].classList.add('active')
-
-// // next q
-// nextBtn.addEventListener('click', () => {
-//     questions[currentQuestion].classList.remove('active')
-
-//     currentQuestion++
-
-//     if (currentQuestion < questions.length) {
-//         questions[currentQuestion].classList.add('active')
-//     } else {
-//         console.log('Quiz Completed')
-//     }
-// })
 

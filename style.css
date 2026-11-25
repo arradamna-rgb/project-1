@@ -16,7 +16,7 @@ body {
 
 body.result {
     background-image: none;
-    background-color: #e9dfec;
+    background-color: #f0e0f5;
 
 }
 
@@ -261,4 +261,18 @@ button.how:hover {
 }
 #review-list p {
     margin-bottom: 10px 0;
+}
+
+#play-again {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-size: larger;
+    width: 400px;
+    padding: 3%;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
 }
