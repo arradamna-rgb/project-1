@@ -83,10 +83,7 @@ h3 {
     gap: 10px;
 }
 
-.options button:hover,
-.options2 button:hover {
-    background-color: #c94c64;
-}
+
 .startbtn {
     display: block;
     text-decoration: none;
@@ -144,7 +141,7 @@ button.how:hover {
 } */
 
 .question2 {
-    margin-top: 150px;
+    margin-top: 10px;
 }
 
 .question.active {
@@ -289,19 +286,16 @@ button.how:hover {
 }
 
 
-/* Selected answer */
 .options button.selected,
 .options2 button.selected {
     background-color: #c94c64;
     color: white;
 }
 
-/* Second quiz hover */
 .options2 button:hover {
     background-color: #c94c64;
 }
 
-/* Second quiz navigation */
 #nextbtn2:hover {
     background-color: #c94c64;
 }
