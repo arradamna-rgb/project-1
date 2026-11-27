@@ -143,6 +143,10 @@ button.how:hover {
     display: none;
 } */
 
+.question2 {
+    margin-top: 150px;
+}
+
 .question.active {
     display: block;
 }
